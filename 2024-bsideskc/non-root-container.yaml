@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp
+spec:
+  containers:
+  - name: myapp
+    image: myapp:5.0
+    ports:
+    - containerPort: 80
+    securityContext:
+      runAsGroup: 1234
+      runAsUser: 1234
+      runAsNonRoot: true
+      fsGroup: 2000
+      fsGroupChangePolicy: "OnRootMismatch"
+---
